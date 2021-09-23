@@ -1,0 +1,28 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit an Entry
+{% endblock %}
+
+{% block body %}
+
+
+<div style="margin: 20px;">
+    <form action="{% url 'edit' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group" style="margin-right: 15px;">
+            <label for="title">Title:</label>
+            <input type="text" autofocus name="title" class="form-control" id="title" value={{ title }}>
+        </div>
+        <div class="form-group" style="margin-right: 15px;">
+            <label for="content">Page Content:</label>
+            <textarea name="content" id="content" class="form-control">{{content}}</textarea>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-secondary">Submit</button>
+        </div>
+    </form>
+</div>
+    
+{% endblock %}
+
